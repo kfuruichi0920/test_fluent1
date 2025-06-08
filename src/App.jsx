@@ -1,11 +1,16 @@
-import { useState } from 'react'
-import { Button } from '@fluentui/react-components';
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import { Button } from "@fluentui/react-components";
+import reactLogo from "./assets/react.svg";
+import viteLogo from "/vite.svg";
+import "./App.css";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import FluentUISample from "./FluentUISample";
 
-function App() {
-  const [count, setCount] = useState(0)
+import { useNavigate } from "react-router-dom";
+
+function Welcome() {
+  const [count, setCount] = useState(0);
+  const navigate = useNavigate();
 
   return (
     <>
@@ -25,12 +30,26 @@ function App() {
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
+        <Button appearance="secondary" style={{ marginTop: 16 }} onClick={() => navigate("/fluentui")}>
+          FluentUIサンプルへ
+        </Button>
       </div>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
     </>
-  )
+  );
 }
 
-export default App
+function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Welcome />} />
+        <Route path="/fluentui" element={<FluentUISample />} />
+      </Routes>
+    </BrowserRouter>
+  );
+}
+
+export default App;
