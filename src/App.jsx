@@ -30,7 +30,7 @@ function Welcome() {
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
-        <Button appearance="secondary" style={{ marginTop: 16 }} onClick={() => navigate("/fluentui")}>
+        <Button appearance="primary" style={{ marginTop: 16 }} onClick={() => navigate("/fluentui")}>
           FluentUIサンプルへ
         </Button>
       </div>
